@@ -7,13 +7,13 @@ This project is a recreation of a mobile task manager **Home Screen** UI, develo
 ### 📸 Screenshots
 
 #### Light Mode  
-![Home Screen (Light)](assets/lightThemeSS.jpg)
-![Bottom Drawer (Light)](assets/bottomDrawerSS.jpg)
+<img src="assets/lightThemeSS.jpg" width="200" alt="Home Screen (Light)" />
+<img src="assets/bottomDrawerSS.jpg" width="200" alt="Bottom Drawer (Light)" />
 
 
 #### Dark Mode  
-![Home Screen (Dark)](assets/darkThemeSS.jpg)
-![Bottom Drawer (Dark)](assets/darkThemeBottomDrawerSS.jpg)
+<img src="assets/darkThemeSS.jpg" width="200" alt="Home Screen (Dark)" />
+<img src="assets/darkThemeBottomDrawerSS.jpg" width="200" alt="Bottom Drawer (Dark)" />
 
 
 > **Note:** Replace the `path/to/...` with your actual image paths.

@@ -13,7 +13,7 @@ interface TaskItemProps {
     icon: string;
     title: string;
     time: string;
-    tags: string[];
+    tags:readonly string[];
     status: 'completed' | 'pending';
     isDarkMode: boolean;
     onToggleStatus: () => void;
