@@ -8,12 +8,12 @@ This project is a recreation of a mobile task manager **Home Screen** UI, develo
 
 #### Light Mode  
 <img src="assets/lightThemeSS.jpg" width="200" alt="Home Screen (Light)" />
-<img src="assets/bottomDrawerSS.jpg" width="200" alt="Bottom Drawer (Light)" />
+<img src="assets/darkThemeBottomDrawerSS.jpg" width="200" alt="Bottom Drawer (Dark)" />
 
 
 #### Dark Mode  
 <img src="assets/darkThemeSS.jpg" width="200" alt="Home Screen (Dark)" />
-<img src="assets/darkThemeBottomDrawerSS.jpg" width="200" alt="Bottom Drawer (Dark)" />
+<img src="assets/bottomDrawerSS.jpg" width="200" alt="Bottom Drawer (Light)" />
 
 
 
