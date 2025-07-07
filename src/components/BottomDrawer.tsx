@@ -15,36 +15,34 @@ interface BottomDrawerProps {
   isDarkMode: boolean;
 }
 
-// New data structure matching the desired design
-
 export const BottomDrawer: React.FC<BottomDrawerProps> = ({ isOpen, onClose, isDarkMode }) => {
   const options = [
     {
       icon: Clock,
       title: "Habit",
       subtitle: "Activity that repeats over time.",
-      iconColor: "#2563EB", // blue-600
+      iconColor: "#2563EB", 
       iconBgStyle: styles.blueBg,
     },
     {
       icon: RotateCcw,
       title: "Recurring Task",
       subtitle: "A task that happens more than once.",
-      iconColor: "#7C3AED", // purple-600
+      iconColor: "#7C3AED", 
       iconBgStyle: styles.purpleBg,
     },
     {
       icon: Check,
       title: "Task",
       subtitle: "A one-time activity to be completed.",
-      iconColor: "#16A34A", // green-600
+      iconColor: "#16A34A",
       iconBgStyle: styles.greenBg,
     },
     {
       icon: Target,
       title: "Goal of the Day",
       subtitle: "A specific target for a single day.",
-      iconColor: "#D97706", // amber-600
+      iconColor: "#D97706", 
       iconBgStyle: styles.orangeBg,
     }
   ];
@@ -123,12 +121,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   drawerDark: {
-    backgroundColor: '#1F2937', // gray-800
+    backgroundColor: '#1F2937', 
   },
   handle: {
     width: 48,
     height: 4,
-    backgroundColor: '#D1D5DB', // gray-300
+    backgroundColor: '#D1D5DB', 
     borderRadius: 9999,
     alignSelf: 'center',
     marginBottom: 12,
@@ -143,10 +141,10 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   listItemLight: {
-    borderBottomColor: '#F3F4F6', // gray-100
+    borderBottomColor: '#F3F4F6', 
   },
   listItemDark: {
-    borderBottomColor: '#374151', // gray-700
+    borderBottomColor: '#374151',
   },
   leftContent: {
     flexDirection: 'row',
@@ -166,24 +164,26 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   title: {
-    fontSize: 14,
+    fontSize: 16,
+    color:"#141414",
     fontWeight: '600',
   },
   subtitle: {
-    fontSize: 12,
+    color:"#4C4C4C",
+    fontSize: 10,
     marginTop: 2,
     lineHeight: 16,
   },
-  titleLight: { color: '#111827' }, // gray-900
-  titleDark: { color: '#F9FAFB' }, // gray-50
-  subtitleLight: { color: '#6B7280' }, // gray-600
-  subtitleDark: { color: '#9CA3AF' }, // gray-400
+  titleLight: { color: '#111827' }, 
+  titleDark: { color: '#F9FAFB' }, 
+  subtitleLight: { color: '#6B7280' }, 
+  subtitleDark: { color: '#9CA3AF' }, 
   chevron: {
-    color: '#9CA3AF', // gray-400
+    color: '#9CA3AF', 
   },
   // Colors for option icons
-  blueBg: { backgroundColor: '#DBEAFE' }, // blue-100
-  purpleBg: { backgroundColor: '#EDE9FE' }, // purple-100
-  greenBg: { backgroundColor: '#D1FAE5' }, // green-100
-  orangeBg: { backgroundColor: '#FFEDD5' }, // orange-100
+  blueBg: { backgroundColor: '#DBEAFE' },
+  purpleBg: { backgroundColor: '#EDE9FE' }, 
+  greenBg: { backgroundColor: '#D1FAE5' }, 
+  orangeBg: { backgroundColor: '#FFEDD5' }, 
 });

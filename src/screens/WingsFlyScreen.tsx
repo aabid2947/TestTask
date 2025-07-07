@@ -1,4 +1,4 @@
-// src/screens/WingsFlyScreen.tsx
+
 
 import React, { useState, useMemo } from 'react';
 import {
@@ -16,21 +16,31 @@ import { DateButton } from '../components/DateButton';
 import { BottomDrawer } from '../components/BottomDrawer';
 import { TaskItem } from '../components/TaskItem';
 
-// Get screen dimensions for responsive design
-const { width } = Dimensions.get('window');
 
-// Initial Data
-const initialTasks = [
+type Task = {
+  icon: string;
+  title: string;
+  time: string;
+  tags: readonly string[]; // Use readonly for better type inference with as const
+  status: 'completed' | 'pending';
+  // Add the color properties as well if you are using them
+  iconBackgroundColor: string;
+  titleColor: string;
+  timeColor: string;
+  timeIconColor: string;
+};
+
+const initialTasks: readonly Task[] = [
   {
     icon: '📅',
     title: 'Schedule a meeting with Harshit Sir',
     time: '2:30 PM',
     tags: ['Habit','Must'],
     status: 'completed',
-    iconBackgroundColor: '#E0F2FE', // Light Blue
-    titleColor: '#0284C7',          // Dark Blue
-    timeColor: '#475569',           // Slate Gray
-    timeIconColor: '#475569',       // Slate Gray
+    iconBackgroundColor: '#E0F2FE', 
+    titleColor: '#0284C7',          
+    timeColor: '#475569',           
+    timeIconColor: '#0E4C92',       
   },
   {
     icon: '🧘',
@@ -38,10 +48,10 @@ const initialTasks = [
     time: '6:00 AM',
     tags: ['Habit', 'Must'],
     status: 'pending',
-    iconBackgroundColor: '#F5F3FF', // Light Purple
-    titleColor: '#7C3AED',          // Dark Purple
-    timeColor: '#F97316',           // Orange
-    timeIconColor: '#F97316',       // Orange
+    iconBackgroundColor: '#F5F3FF', 
+    titleColor: '#7C3AED',          
+    timeColor: '#F97316',           
+    timeIconColor: '#800080',       
   },
   {
     icon: '💰',
@@ -49,10 +59,10 @@ const initialTasks = [
     time: '11:30 AM',
     tags: ['Habit','Important'],
     status: 'pending',
-    iconBackgroundColor: '#D1FAE5', // Light Green
-    titleColor: '#059669',          // Dark Green
-    timeColor: '#E11D48',           // Rose Red
-    timeIconColor: '#E11D48',       // Rose Red
+    iconBackgroundColor: '#D1FAE5', 
+    titleColor: '#059669',          
+    timeColor: '#FFD700',           
+    timeIconColor: '#FFD700',       
   },
   {
     icon: '🚶',
@@ -60,10 +70,10 @@ const initialTasks = [
     time: '7:00 AM',
     tags: ['Habit', 'Important'],
     status: 'pending',
-    iconBackgroundColor: '#FEF3C7', // Light Amber
-    titleColor: '#D97706',          // Dark Amber
-    timeColor: '#14B8A6',           // Teal
-    timeIconColor: '#14B8A6',       // Teal
+    iconBackgroundColor: '#FEF3C7', 
+    titleColor: '#D97706',         
+    timeColor: '#14B8A6',           
+    timeIconColor: '#228B22',       
   },
   {
     icon: '🌻',
@@ -71,10 +81,10 @@ const initialTasks = [
     time: '12:30 PM',
     tags: ['Task', 'Important'],
     status: 'pending',
-    iconBackgroundColor: '#FEF9C3', // Light Yellow
-    titleColor: '#CA8A04',          // Dark Yellow
-    timeColor: '#5B21B6',           // Deep Purple
-    timeIconColor: '#5B21B6',       // Deep Purple
+    iconBackgroundColor: '#FEF9C3', 
+    titleColor: '#CA8A04',          
+    timeColor: '#5B21B6',           
+    timeIconColor: '#FFA500',       
   },
   {
     icon: '🎨',
@@ -82,18 +92,18 @@ const initialTasks = [
     time: '2:00 PM',
     tags: ['Task', 'Important'],
     status: 'pending',
-    iconBackgroundColor: '#FCE7F3', // Light Pink
-    titleColor: '#DB2777',          // Dark Pink
-    timeColor: '#2563EB',           // Bright Blue
-    timeIconColor: '#2563EB',       // Bright Blue
+    iconBackgroundColor: '#FCE7F3', 
+    titleColor: '#DB2777',          
+    timeColor: '#2563EB',           
+    timeIconColor: '#006D5B',       
   }
-];
+] ;
 // Main App Component
 const WingsFlyApp = () => {
   const [selectedDate, setSelectedDate] = useState(18);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [tasks, setTasks] = useState(initialTasks); // Manage tasks in state
+  const [tasks, setTasks] = useState(initialTasks);
 
   const dates = [15, 16, 17, 18, 19, 20, 21];
 
@@ -192,22 +202,34 @@ const WingsFlyApp = () => {
             "You must do the things you think you cannot do."
           </Text>
           <View style={styles.progressContainer}>
-            <Text style={[
-              styles.progressText,
-              isDarkMode ? styles.progressTextDark : styles.progressTextLight
-            ]}>
-              Progress: {progressPercentage}%
-            </Text>
-            <View style={styles.progressBarContainer}>
-              <View style={[
-                styles.progressBar,
-                isDarkMode ? styles.progressBarDark : styles.progressBarLight
-              ]}>
-                {/* Dynamically set the width of the progress fill */}
-                <View style={[styles.progressFill, { width: `${progressPercentage}%` }]} />
-              </View>
-            </View>
-          </View>
+      <Text style={[
+        styles.progressText,
+        isDarkMode ? styles.progressTextDark : styles.progressTextLight
+      ]}>
+        Progress {progressPercentage}%
+      </Text>
+      <View style={styles.progressBarContainer}>
+        <View style={[
+          styles.progressBar,
+          isDarkMode ? styles.progressBarDark : styles.progressBarLight
+        ]}>
+          {/* Progress fill with dynamic width */}
+          <View style={[
+            styles.progressFill, 
+            { width: `${Math.min(progressPercentage, 100)}%` }
+          ]} />
+          
+          {/* Circular indicator at the end of progress */}
+          <View style={[
+            styles.progressIndicator,
+            { 
+              left: `${Math.min(progressPercentage, 100)}%`,
+              marginLeft: -6, 
+            }
+          ]} />
+        </View>
+      </View>
+    </View>
         </View>
 
         {/* Tasks */}
@@ -217,7 +239,6 @@ const WingsFlyApp = () => {
               key={index}
               {...task}
               isDarkMode={isDarkMode}
-              // Pass the toggle function to each item
               onToggleStatus={() => toggleTaskStatus(index)}
             />
           ))}
@@ -366,42 +387,68 @@ const styles = StyleSheet.create({
   quoteTextDark: {
     color: '#D1D5DB',
   },
+
+
+
+
+  
+  tasksContainer: {
+  //   gap: "-32",
+  },
   progressContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  //   marginVertical: ,
   },
   progressText: {
-    fontSize: 12,
-    marginRight: 16,
+    fontSize: 14,
+    fontWeight: '500',
+    marginBottom: 8,
   },
   progressTextLight: {
-    color: '#6B7280',
+    color: '#3B82F6',
   },
   progressTextDark: {
-    color: '#9CA3AF',
+    color: '#3B82F6',
   },
   progressBarContainer: {
-    flex: 1,
+    width: '100%',
+    position: 'relative',
   },
   progressBar: {
     height: 8,
     borderRadius: 4,
     overflow: 'hidden',
+    position: 'relative',
   },
   progressBarLight: {
     backgroundColor: '#E5E7EB',
   },
   progressBarDark: {
-    backgroundColor: '#374151',
+    backgroundColor: '#4B5563',
   },
   progressFill: {
     height: '100%',
-    backgroundColor: '#3B82F6',
+    backgroundColor: '#3B82F6', 
     borderRadius: 4,
+    position: 'absolute',
+    left: 0,
+    top: 0,
   },
-  // tasksContainer: {
-  //   gap: "-32",
-  // },
+  progressIndicator: {
+    position: 'absolute',
+    top: -2,
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    backgroundColor: '#3B82F6', 
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
   fab: {
     position: 'absolute',
     bottom: 24,
