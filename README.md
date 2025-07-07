@@ -16,7 +16,6 @@ This project is a recreation of a mobile task manager **Home Screen** UI, develo
 <img src="assets/darkThemeBottomDrawerSS.jpg" width="200" alt="Bottom Drawer (Dark)" />
 
 
-> **Note:** Replace the `path/to/...` with your actual image paths.
 
 ---
 
@@ -50,5 +49,88 @@ This project is a recreation of a mobile task manager **Home Screen** UI, develo
 
 ---
 
+
 ### 📁 Folder Structure
+
+/src
+├── components
+│   ├── BottomDrawer.tsx
+│   ├── CheckIcon.tsx
+│   ├── CircleIcon.tsx
+│   ├── DateButton.tsx
+│   └── TaskItem.tsx
+└── screens
+    └── WingsFlyScreen.tsx
+
+
+---
+
+### 🚀 Setup & Installation
+
+#### Prerequisites
+
+* **Node.js** (LTS)
+* **Watchman** (macOS)
+* **React Native CLI** environment
+
+#### Steps
+
+1. **Clone the repo**
+
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Install iOS pods**
+
+   ```bash
+   cd ios
+   pod install
+   cd ..
+   ```
+
+4. **Run the app**
+
+   * **Android:**
+
+     ```bash
+     npx react-native run-android
+     ```
+   * **iOS:**
+
+     ```bash
+     npx react-native run-ios
+     ```
+
+---
+
+### 🔑 Key Decisions & Assumptions
+
+1. **State Management**
+   Used React’s `useState` & `useMemo` for simplicity—no Redux/Zustand.
+
+2. **Styling**
+   Standard `StyleSheet.create` for performance and organization.
+
+3. **Animations**
+   Leveraged `Modal` with `animationType="slide"` instead of heavy libraries.
+
+4. **Icons**
+   Chose **lucide-react-native** for its high-quality SVG set (requires `react-native-svg`).
+
+5. **Assumptions**
+
+   * The Figma design is the source of truth for colors, fonts, and spacing.
+   * Interactive behaviors follow standard UX patterns for task apps.
+
+---
 
