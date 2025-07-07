@@ -51,7 +51,7 @@ This project is a recreation of a mobile task manager **Home Screen** UI, develo
 
 
 ### 📁 Folder Structure
-
+```plainText
 /src
 ├── components
 │   ├── BottomDrawer.tsx
@@ -61,7 +61,7 @@ This project is a recreation of a mobile task manager **Home Screen** UI, develo
 │   └── TaskItem.tsx
 └── screens
     └── WingsFlyScreen.tsx
-
+```
 
 ---
 
